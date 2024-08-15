@@ -1,13 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import authReducer from './slices/authSlice';
+import productReducer from './slices/productSlice';
 
-// Example slice, we'll create real ones later
+// Creating the Redux store with slices for auth and products
 const store = configureStore({
   reducer: {
-    // Add your reducers here
+    auth: authReducer,
+    products: productReducer,
   },
 });
 
+// Custom hooks for using Redux in your components
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export default store;
