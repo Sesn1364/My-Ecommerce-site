@@ -1,9 +1,11 @@
 import React from 'react';
+import ProductList from './components/ProductList';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-4xl font-bold">Welcome to My E-commerce Site</h1>
+    <div>
+      <h1>Welcome to the E-commerce Site</h1>
+      <ProductList />
     </div>
   );
 };
